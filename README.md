@@ -1,2 +1,2 @@
-# TEMPLATE plugin
-This is a template plugin description
+# Plugin with web utilities
+Various tools for WWW programmers. ViewState Decoder original author: Fritz Onion
