@@ -1,2 +1,2 @@
 # Plugin with web utilities
-Various tools for WWW programmers. ViewState Decoder original author: Fritz Onion
+Various tools for Web administrators and programmers. ViewState Decoder original author: Fritz Onion

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 #else
 
 [assembly: AssemblyTitle("Plugin.WebHelper")]
-[assembly: AssemblyDescription("Various tools for ASP.NET programmers. ViewState Decoder original author: Fritz Onion")]
+[assembly: AssemblyDescription("Various tools for Web administrators and programmers. ViewState Decoder original author: Fritz Onion")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
