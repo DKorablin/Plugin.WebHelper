@@ -71,8 +71,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtBase64.Location = new System.Drawing.Point(18, 18);
 			this.txtBase64.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.txtBase64.MaxLength = 2147483647;
 			this.txtBase64.Multiline = true;
+			this.txtBase64.MaxLength = 0;
 			this.txtBase64.Name = "txtBase64";
 			this.txtBase64.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtBase64.Size = new System.Drawing.Size(388, 169);

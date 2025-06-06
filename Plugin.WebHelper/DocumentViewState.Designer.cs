@@ -120,6 +120,7 @@
 			this.txtViewStateText.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtViewStateText.Location = new System.Drawing.Point(0, 0);
 			this.txtViewStateText.Multiline = true;
+			this.txtViewStateText.MaxLength = 0;
 			this.txtViewStateText.Name = "txtViewStateText";
 			this.txtViewStateText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtViewStateText.Size = new System.Drawing.Size(205, 149);
@@ -142,6 +143,7 @@
 			this.txtViewStateXml.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtViewStateXml.Location = new System.Drawing.Point(0, 0);
 			this.txtViewStateXml.Multiline = true;
+			this.txtViewStateXml.MaxLength = 0;
 			this.txtViewStateXml.Name = "txtViewStateXml";
 			this.txtViewStateXml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtViewStateXml.Size = new System.Drawing.Size(205, 149);
@@ -184,6 +186,7 @@
 			this.txtControlStateXml.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtControlStateXml.Location = new System.Drawing.Point(0, 0);
 			this.txtControlStateXml.Multiline = true;
+			this.txtControlStateXml.MaxLength = 0;
 			this.txtControlStateXml.Name = "txtControlStateXml";
 			this.txtControlStateXml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtControlStateXml.Size = new System.Drawing.Size(205, 162);
@@ -319,6 +322,7 @@
 			this.error.SetIconAlignment(this.txtViewState, System.Windows.Forms.ErrorIconAlignment.TopLeft);
 			this.txtViewState.Location = new System.Drawing.Point(3, 3);
 			this.txtViewState.Multiline = true;
+			this.txtViewState.MaxLength = 0;
 			this.txtViewState.Name = "txtViewState";
 			this.txtViewState.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtViewState.Size = new System.Drawing.Size(159, 299);

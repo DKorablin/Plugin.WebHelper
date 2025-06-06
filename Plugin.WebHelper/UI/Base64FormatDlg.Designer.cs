@@ -74,6 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtFormat.Location = new System.Drawing.Point(14, 13);
 			this.txtFormat.Multiline = true;
+			this.txtFormat.MaxLength = 0;
 			this.txtFormat.Name = "txtFormat";
 			this.txtFormat.Size = new System.Drawing.Size(188, 53);
 			this.txtFormat.TabIndex = 2;

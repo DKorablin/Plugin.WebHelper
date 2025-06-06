@@ -69,6 +69,7 @@
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.txtTicket.Location = new System.Drawing.Point(10, 27);
 			this.txtTicket.Multiline = true;
+			this.txtTicket.MaxLength = 0;
 			this.txtTicket.Name = "txtTicket";
 			this.txtTicket.Size = new System.Drawing.Size(296, 80);
 			this.txtTicket.TabIndex = 6;
