@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+#if NET35
 using System.Web.Security;
+#else
+using Plugin.WebHelper.Compat;
+#endif
 using System.Windows.Forms;
 using SAL.Windows;
 

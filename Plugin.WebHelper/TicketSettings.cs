@@ -1,6 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+#if NET35
 using System.Web.Security;
+#else
+using Plugin.WebHelper.Compat;
+#endif
 
 namespace Plugin.WebHelper
 {
@@ -9,7 +13,11 @@ namespace Plugin.WebHelper
 		[Category("Data")]
 		[Description("The path for the ticket when stored in a cookie")]
 		[DefaultValue("/")]
+#if NET35
 		public String CookiePath { get; set; } = FormsAuthentication.FormsCookiePath;
+#else
+		public String CookiePath { get; set; } = "/";
+#endif
 
 		[Category("Data")]
 		[Description("The user-specific data to be stored with the ticket")]

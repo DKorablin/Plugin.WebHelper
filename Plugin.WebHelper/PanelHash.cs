@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 using SAL.Windows;
+#if NET35
 using System.Web.Configuration;
-using System.Drawing;
 using System.Web.Security;
+#else
+using Plugin.WebHelper.Compat;
+#endif
+using System.Drawing;
 using System.Diagnostics;
 
 namespace Plugin.WebHelper
@@ -20,7 +24,7 @@ namespace Plugin.WebHelper
 
 		public PanelHash()
 		{
-			InitializeComponent();
+			this.InitializeComponent();
 			ddlPasswordFormat.Items.AddRange(Enum.GetNames(typeof(FormsAuthPasswordFormat)));
 		}
 

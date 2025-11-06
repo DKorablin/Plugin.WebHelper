@@ -123,7 +123,7 @@ namespace Plugin.WebHelper
 				if(Clipboard.ContainsImage())
 				{
 					Object payload = Clipboard.GetData("FileName");
-					if(payload != null && payload is String && File.Exists((String)payload))
+					if(payload is String sPayload && File.Exists(sPayload))
 						this.AddFiles((String)payload);//Firefox store image in Temp folder
 					else
 						this.AddFile(Clipboard.GetImage());
@@ -201,24 +201,6 @@ namespace Plugin.WebHelper
 			this.Plugin.HostWindows.Plugins.Settings(this.Plugin).SaveAssemblyParameters();
 		}
 
-		private void AddFile(Image image)
-		{
-			using(Bitmap bmp = new Bitmap(image))
-				this.AddFile(ImageUtils.SaveImage(bmp, 100, this.Plugin.Settings.ImageFormat));
-		}
-
-		private void AddFile(Byte[] imageBytes)
-		{
-			ListViewItem item = this.AddFile(null, imageBytes);
-			if(tsmiToolsToClipboard.Checked)
-				this.SaveToClipboard(new ListViewItem[] { item, });
-
-			lvFiles.Items.Add(item);
-			lvFiles.EnsureVisible(lvFiles.Items.Count - 1);
-
-			lvFiles.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-		}
-
 		private void AddFiles(params String[] fileNames)
 		{
 			ListViewItem[] listItems = new ListViewItem[fileNames.Length];
@@ -234,6 +216,24 @@ namespace Plugin.WebHelper
 			lvFiles.Items.AddRange(listItems);
 			if(listItems.Length < lvFiles.Items.Count)
 				lvFiles.EnsureVisible(lvFiles.Items.Count - 1);
+
+			lvFiles.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+		}
+
+		private void AddFile(Image image)
+		{
+			using(Bitmap bmp = new Bitmap(image))
+				this.AddFile(ImageUtils.SaveImage(bmp, 100, this.Plugin.Settings.ImageFormat));
+		}
+
+		private void AddFile(Byte[] imageBytes)
+		{
+			ListViewItem item = this.AddFile(null, imageBytes);
+			if(tsmiToolsToClipboard.Checked)
+				this.SaveToClipboard(new ListViewItem[] { item, });
+
+			lvFiles.Items.Add(item);
+			lvFiles.EnsureVisible(lvFiles.Items.Count - 1);
 
 			lvFiles.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 		}

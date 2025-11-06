@@ -8,7 +8,7 @@ namespace Plugin.WebHelper.UI
 		public Byte[] Base64Image { get; private set; }
 
 		public FromBase64ImageDlg()
-			=> InitializeComponent();
+			=> this.InitializeComponent();
 
 		private void txtBase64_TextChanged(Object sender, EventArgs e)
 			=> bnOk.Enabled = txtBase64.Text.Length > 0;
@@ -20,6 +20,7 @@ namespace Plugin.WebHelper.UI
 				error.SetError(bnOk, String.Empty);
 				if(txtBase64.Text.Length == 0)
 					error.SetError(bnOk, "No data");
+
 				try
 				{
 					this.Base64Image = Convert.FromBase64String(txtBase64.Text);

@@ -65,7 +65,7 @@ namespace Plugin.WebHelper
 			Exception exception = null;
 			try
 			{
-				LosFormatter formatter = new LosFormatter();//ViewSate не может быть получен, если указана ссылка на специфичную сборку
+				LosFormatter formatter = new LosFormatter();//ViewSate cannot be obtained if a specific assembly is referenced.
 				Object deserializedObject = null;
 
 				XmlDocument dom = null;
@@ -77,10 +77,15 @@ namespace Plugin.WebHelper
 					exception = exc.InnerException ?? exc;
 				}
 
-				if(exception != null)//Ошибка при подгрузки типа из внешней библиотеки
+				if(exception != null)//Error loading type from external library
 				{
+#if NET35
 					ObjectStateFormatter objectFormatter = (ObjectStateFormatter)typeof(LosFormatter).InvokeMember("_formatter", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, formatter, null);
 					typeof(ObjectStateFormatter).InvokeMember("_throwOnErrorDeserializing", BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Instance, null, objectFormatter, new Object[] { false, });
+#else
+					// For .NET 8, access the internal field directly (compatibility layer exposes it as internal)
+					formatter._formatter._throwOnErrorDeserializing = false;
+#endif
 					deserializedObject = formatter.Deserialize(txtViewState.Text);
 				}
 
@@ -129,7 +134,7 @@ namespace Plugin.WebHelper
 			}
 			if(exception != null)
 			{
-				error.SetIconAlignment(bnDecode, ErrorIconAlignment.MiddleLeft);//TODO: Само по себе меняется положение иконки
+				error.SetIconAlignment(bnDecode, ErrorIconAlignment.MiddleLeft);//TODO: The position of the icon changes by itself
 				error.SetError(bnDecode, exception.Message);
 				this.Plugin.Trace.TraceData(TraceEventType.Error, 10, exception);
 			}
@@ -189,7 +194,7 @@ namespace Plugin.WebHelper
 			if(Uri.IsWellFormedUriString(url, UriKind.Absolute))
 			{
 				if(this.Plugin.Settings.ViewStateEncodeUrl != url)
-				{//Сохранение ссылки на ресурс в настройках
+				{//Saving a link to a resource in settings
 					this.Plugin.Settings.ViewStateEncodeUrl = url;
 					this.Plugin.HostWindows.Plugins.Settings(this.Plugin).SaveAssemblyParameters();
 				}
@@ -201,7 +206,7 @@ namespace Plugin.WebHelper
 				String responseUrl = response.ResponseUri.ToString();
 				if(!url.Equals(responseUrl, StringComparison.OrdinalIgnoreCase))
 				{
-					base.Invoke((MethodInvoker)delegate
+					base.Invoke((System.Windows.Forms.MethodInvoker)delegate
 					{
 						txtUrl.Text = responseUrl;
 						txtUrl.BackColor = Color.Orange;
@@ -323,7 +328,7 @@ namespace Plugin.WebHelper
 			{
 				TreeView tree = (TreeView)sender;
 				TreeViewHitTestInfo info = tree.HitTest(e.Location);
-				if(info.Node!=null)
+				if(info.Node != null)
 				{
 					tree.SelectedNode = info.Node;
 					cmsTree.Show(tree, e.Location);

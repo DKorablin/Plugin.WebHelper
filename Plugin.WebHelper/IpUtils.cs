@@ -46,7 +46,7 @@ namespace Plugin.WebHelper
 		public static IPAddress LengthToMask(Byte mask)
 		{
 			if(mask > 32)
-				throw new ArgumentOutOfRangeException("Valid CIDR length 0-32");
+				throw new ArgumentOutOfRangeException(nameof(mask), "Valid CIDR length 0-32");
 
 			Byte global = 0;
 			Byte b1 = IpUtils.LengthToMaskCalc(mask, ref global);

@@ -28,8 +28,7 @@ namespace Plugin.WebHelper.Reflection
 							else
 							{
 								FieldInfo field = typeOfResult.GetField(argument.MemberInfo.Name);
-								if(field != null)
-									field.SetValue(item, argument.TypedValue.Value);
+								field?.SetValue(item, argument.TypedValue.Value);
 							}
 						}
 						result.Add(item);

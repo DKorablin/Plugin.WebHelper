@@ -9,10 +9,10 @@ namespace Plugin.WebHelper
 {
 	internal static class ImageUtils
 	{
-		/// <summary>Изменить размеры изображения</summary>
-		/// <param name="image">Изображение в памяти</param>
-		/// <param name="maxSize">Максимальное разрешение изображения</param>
-		/// <returns>Уменьшённая картинка</returns>
+		/// <summary>Resize image</summary>
+		/// <param name="image">Image in memory</param>
+		/// <param name="maxSize">Maximum image resolution</param>
+		/// <returns>Resized image</returns>
 		public static Bitmap ResizeImage(Bitmap image, Size maxSize, Boolean highQuality)
 		{
 			Size newSize = new Size(maxSize.Width, maxSize.Height);
@@ -25,7 +25,7 @@ namespace Plugin.WebHelper
 
 			Bitmap result;
 			if(highQuality)
-			{//Ресайз картинки в высоком качестве
+			{//Resize images in high quality
 				result = new Bitmap(newSize.Width, newSize.Height);
 				using(Graphics graphics = Graphics.FromImage(result))
 				{
@@ -89,7 +89,7 @@ namespace Plugin.WebHelper
 			get
 			{
 				if(encoders == null)
-					encoders = new Dictionary<string, ImageCodecInfo>();
+					encoders = new Dictionary<String, ImageCodecInfo>();
 
 				if(encoders.Count == 0)
 					foreach(ImageCodecInfo codec in ImageCodecInfo.GetImageEncoders())

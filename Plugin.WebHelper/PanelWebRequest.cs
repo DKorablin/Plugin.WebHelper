@@ -15,7 +15,7 @@ namespace Plugin.WebHelper
 		private IWindow Window => (IWindow)base.Parent;
 
 		public PanelWebRequest()
-			=> InitializeComponent();
+			=> this.InitializeComponent();
 
 		protected override void OnCreateControl()
 		{
@@ -52,7 +52,7 @@ namespace Plugin.WebHelper
 		private ListViewItem CreateListItem(ListViewGroup group, String key, String value)
 		{
 			ListViewItem result = new ListViewItem();
-			String[] subItems = Array.ConvertAll<String, String>(new String[lvResult.Columns.Count], delegate(String a) { return String.Empty; });
+			String[] subItems = Array.ConvertAll<String, String>(new String[lvResult.Columns.Count], s => String.Empty);
 			result.SubItems.AddRange(subItems);
 
 			result.SubItems[colName.Index].Text = key;
@@ -61,8 +61,8 @@ namespace Plugin.WebHelper
 			return result;
 		}
 
-		/// <summary>Получить ответ от сервера</summary>
-		/// <returns>Массив байт полученного ответа</returns>
+		/// <summary>Get a response from the server</summary>
+		/// <returns>Byte array of the received response</returns>
 		private static Byte[] GetResponseBytes(HttpWebResponse response)
 		{
 			Byte[] buffer = new Byte[4096];
@@ -81,9 +81,9 @@ namespace Plugin.WebHelper
 			}
 		}
 
-		/// <summary>Получить ответ от сервера</summary>
-		/// <param name="response">Ответ от удалённого сервера</param>
-		/// <returns>Ответ сервера на запрос</returns>
+		/// <summary>Get a response from the server</summary>
+		/// <param name="response">Response from the remote server</param>
+		/// <returns>Server response to the request</returns>
 		private static String GetResponseString(HttpWebResponse response)
 		{
 			if(response == null)
@@ -94,7 +94,7 @@ namespace Plugin.WebHelper
 			{
 				encoding = Encoding.GetEncoding(response.CharacterSet);
 			} catch(ArgumentException)
-			{//Не валидная кодировка
+			{//Invalid encoding
 			}
 
 			using(StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
@@ -122,14 +122,18 @@ namespace Plugin.WebHelper
 		{
 			if(lvResult.SelectedItems.Count > 0 && lvResult.SelectedItems[0].Group != null)
 			{
-				String response = lvResult.SelectedItems[0].Group.Tag as String;
-				if(response == null)
+				if(lvResult.SelectedItems[0].Group.Tag is String response)
 				{
 					Byte[] byteResult = lvResult.SelectedItems[0].Group.Tag as Byte[];
 					response = Encoding.GetEncoding(1251).GetString(byteResult);
+					txtResponse.Text = response;
+					browser.DocumentText = response;
+				} else
+				{
+					txtResponse.Text = null;
+					browser.DocumentText = null;
 				}
-				txtResponse.Text = response;
-				browser.DocumentText = response;
+
 				splitResult.Panel2Collapsed = false;
 			} else
 				txtResponse.Text = String.Empty;

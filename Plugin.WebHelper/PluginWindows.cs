@@ -18,11 +18,11 @@ namespace Plugin.WebHelper
 
 		internal IHostWindows HostWindows { get; }
 
-		/// <summary>Настройки для взаимодействия из хоста</summary>
+		/// <summary>Settings for interaction from the host</summary>
 		Object IPluginSettings.Settings
-			=> this.Settings;
+		=> this.Settings;
 
-		/// <summary>Настройки для взаимодействия из плагина</summary>
+		/// <summary>Settings for interaction from the plugin</summary>
 		public PluginSettings Settings
 		{
 			get
@@ -80,32 +80,32 @@ namespace Plugin.WebHelper
 			this._networkMenu = new List<IMenuItem>();
 			IMenuItem hashMenu = wwwTools.Create("Hash");
 			hashMenu.Name = "Tools.Network.Hash";
-			hashMenu.Click += (sender, e)=> { this.CreateWindow(typeof(PanelHash).ToString(), false); };
+			hashMenu.Click += (sender, e) => this.CreateWindow(typeof(PanelHash).ToString(), false);
 			this._networkMenu.Add(hashMenu);
 
 			/*IMenuItem aspTicketMenu = wwwTools.Create("ASP.NET Ticket");
 			aspTicketMenu.Name = "tsmiNetworkAspTicket";
-			aspTicketMenu.Click += (sender, e) => { this.CreateWindow(typeof(DocumentAspTicket).ToString(), false); };
+			aspTicketMenu.Click += (sender, e) => this.CreateWindow(typeof(DocumentAspTicket).ToString(), false);
 			this._networkMenu.Add(aspTicketMenu);*/
 
 			IMenuItem viewStateMenu = wwwTools.Create("ViewSate Decoder");
 			viewStateMenu.Name = "Tools.Network.ViewState";
-			viewStateMenu.Click += (sender, e)=> { this.CreateWindow(typeof(DocumentViewState).ToString(), false); };
+			viewStateMenu.Click += (sender, e) => this.CreateWindow(typeof(DocumentViewState).ToString(), false);
 			this._networkMenu.Add(viewStateMenu);
 
 			/*IMenuItem webRequestMenu = wwwTools.Create("Web Request");
 			webRequestMenu.Name = "tsmiNetworkWebRequest";
-			webRequestMenu.Click += (sender, e) => { this.CreateWindow(typeof(PanelWebRequest).ToString(), false); };
+			webRequestMenu.Click += (sender, e) => this.CreateWindow(typeof(PanelWebRequest).ToString(), false);
 			this._networkMenu.Add(webRequestMenu);*/
 
 			IMenuItem image2Base64 = wwwTools.Create("Image to Base64");
 			image2Base64.Name = "Tools.Network.Image2Base64";
-			image2Base64.Click += (sender, e) => { this.CreateWindow(typeof(PanelImage2Base64).ToString(), false); };
+			image2Base64.Click += (sender, e) => this.CreateWindow(typeof(PanelImage2Base64).ToString(), false);
 			this._networkMenu.Add(image2Base64);
 
 			IMenuItem ipMenu = wwwTools.Create("&IP Calculator");
 			ipMenu.Name = "Tools.Network.IpCalculator";
-			ipMenu.Click += (sender, e) => { this.CreateWindow(typeof(PanelIpCalculator).ToString(), true); };
+			ipMenu.Click += (sender, e) => this.CreateWindow(typeof(PanelIpCalculator).ToString(), true);
 			this._networkMenu.Add(ipMenu);
 
 			wwwTools.Items.AddRange(this._networkMenu.ToArray());
