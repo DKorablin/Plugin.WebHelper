@@ -2,7 +2,7 @@
 
 [![Auto build](https://github.com/DKorablin/Plugin.WebHelper/actions/workflows/release.yml/badge.svg)](https://github.com/DKorablin/Plugin.WebHelper/releases/latest)
 
-A comprehensive suite of web development utilities for the SAL (Software Abstraction Layer) platform. This plugin provides various tools designed to help web administrators and programmers with common web-related tasks.
+A comprehensive suite of web development utilities based on SAL (Software Abstraction Layer) platform. This plugin provides various tools designed to help web administrators and programmers with common web-related tasks.
 
 ## Features
 
