@@ -1,16 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Web.UI;
 using System.Windows.Forms;
 using System.Xml;
 using SAL.Windows;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace Plugin.WebHelper
 {
@@ -20,7 +19,7 @@ namespace Plugin.WebHelper
 
 		private PluginWindows Plugin
 		{
-			get => (PluginWindows)this.Window.Plugin;
+			get => (PluginWindows)this.Window.Plugin.Instance;
 		}
 
 		private IWindow Window

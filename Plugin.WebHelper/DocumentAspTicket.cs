@@ -12,7 +12,7 @@ namespace Plugin.WebHelper
 {
 	public partial class DocumentAspTicket : UserControl
 	{
-		private PluginWindows Plugin { get => (PluginWindows)this.Window.Plugin; }
+		private PluginWindows Plugin { get => (PluginWindows)this.Window.Plugin.Instance; }
 
 		private IWindow Window { get => (IWindow)base.Parent; }
 
