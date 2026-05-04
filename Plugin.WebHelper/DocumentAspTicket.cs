@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-#if NET35
+#if NETFRAMEWORK
 using System.Web.Security;
 #else
 using Plugin.WebHelper.Compat;

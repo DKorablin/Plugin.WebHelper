@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using SAL.Windows;
-#if NET35
+#if NETFRAMEWORK
 using System.Web.Configuration;
 using System.Web.Security;
 #else

@@ -5,4 +5,3 @@ using System.Runtime.InteropServices;
 [assembly: System.CLSCompliant(false)]
 
 [assembly: AssemblyDescription("Various tools for Web administrators and programmers. ViewState Decoder original author: Fritz Onion")]
-[assembly: AssemblyCopyright("Copyright © Danila Korablin 2010-2025")]

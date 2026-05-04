@@ -79,7 +79,7 @@ namespace Plugin.WebHelper
 
 				if(exception != null)//Error loading type from external library
 				{
-#if NET35
+#if NETFRAMEWORK
 					ObjectStateFormatter objectFormatter = (ObjectStateFormatter)typeof(LosFormatter).InvokeMember("_formatter", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, formatter, null);
 					typeof(ObjectStateFormatter).InvokeMember("_throwOnErrorDeserializing", BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Instance, null, objectFormatter, new Object[] { false, });
 #else
