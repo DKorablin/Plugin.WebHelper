@@ -14,11 +14,9 @@ namespace Plugin.WebHelper
 {
 	public partial class PanelHash : UserControl
 	{
-		private PluginWindows Plugin 
-			=> (PluginWindows)this.Window.Plugin;
+		private PluginWindows Plugin => (PluginWindows)this.Window.Plugin.Instance;
 
-		private IWindow Window 
-			=> (IWindow)base.Parent;
+		private IWindow Window => (IWindow)base.Parent;
 
 		private static Color[] Colors = new Color[] { Color.Red, Color.Green, Color.Blue, };
 
