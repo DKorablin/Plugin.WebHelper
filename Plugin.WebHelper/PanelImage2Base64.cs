@@ -14,11 +14,9 @@ namespace Plugin.WebHelper
 	{
 		private const String SizeTextArgs2 = "Size: {0}x{1}";
 
-		private PluginWindows Plugin
-			=> (PluginWindows)this.Window.Plugin;
+		private PluginWindows Plugin => (PluginWindows)this.Window.Plugin.Instance;
 
-		private IWindow Window
-			=> (IWindow)base.Parent;
+		private IWindow Window => (IWindow)base.Parent;
 
 		public PanelImage2Base64()
 			=> this.InitializeComponent();

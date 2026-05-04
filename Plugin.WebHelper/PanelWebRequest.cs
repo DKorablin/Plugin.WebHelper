@@ -11,7 +11,8 @@ namespace Plugin.WebHelper
 {
 	public partial class PanelWebRequest : UserControl
 	{
-		private PluginWindows Plugin => (PluginWindows)this.Window.Plugin;
+		private PluginWindows Plugin => (PluginWindows)this.Window.Plugin.Instance;
+
 		private IWindow Window => (IWindow)base.Parent;
 
 		public PanelWebRequest()

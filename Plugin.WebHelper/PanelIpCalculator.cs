@@ -7,11 +7,7 @@ namespace Plugin.WebHelper
 {
 	public partial class PanelIpCalculator : UserControl
 	{
-		private PluginWindows Plugin
-			=> (PluginWindows)this.Window.Plugin;
-
-		private IWindow Window
-			=> (IWindow)base.Parent;
+		private IWindow Window => (IWindow)base.Parent;
 
 		public PanelIpCalculator()
 			=> this.InitializeComponent();
